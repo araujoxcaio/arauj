@@ -1,20 +1,27 @@
-<%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css"> 
-    <title>Toolbox</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-</head>
-<!-- Navigation -->
-    <div class="sidebar">
-        <div class="brand"> <a href="index.html">Toolbox</a> </div>
-        <div class="menu ">
-            <ul>
-                <li class="item-menu"><a href="index.jsp ">Home</a></li>
-                <li class="item-menu"><a href="clientes.jsp">Clientes</a></li>
-                <li class="item-menu"><a href="fornecedores.jsp">Fornecedores</a></li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css"> 
+        <title>Toolbox</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <div class="brand"> <a href="index.html">Toolbox</a> </div>
+            <div class="menu ">
+                <ul>
+                    <li class="item-menu"><a href="index.jsp ">Home</a></li>
+                    <li class="item-menu"><a href="clientes.jsp">Clientes</a></li>
+                    <li class="item-menu"><a href="fornecedores.jsp">Fornecedores</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+        <div class="content ">
+            <div class="top ">
+            </div>
+
+            <div class="container">
