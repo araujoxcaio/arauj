@@ -33,7 +33,7 @@
                             <img src="img/caio.jpg" alt="...">
                         </a>
                     </div>
-                    <h4>Caio Araujo, 19 anos.</h4>
+                    <h4>Caio Araujo, 19 anos</h4>
                     <h4>Itanhaém - SP.</h4>
                 </div>
                 <!-- Integrante 2 -->
@@ -43,7 +43,7 @@
                             <img src="img/caiovitor.jpg" alt="...">
                         </a>
                     </div>
-                    <h4>Caio Vitor.</h4>
+                    <h4>Caio Vitor</h4>
                     <h4>Praia Grande - SP.</h4>
                 </div>
                 <!-- Integrante 3 -->
