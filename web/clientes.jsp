@@ -19,7 +19,7 @@
         c.setComplemento(request.getParameter("complemento"));
         c.setBairro(request.getParameter("bairro"));
         c.setCidade(request.getParameter("cidade"));
-        c.setUf(request.getParameter("uf"));
+        c.setUf(request.getParameter("uf"));        
     }
 
 %>
