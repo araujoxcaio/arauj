@@ -9,9 +9,9 @@ package br.com.fatecpg.Pessoa;
  *
  * @author arauj
  */
-public class Clientes extends Pessoa {
-    String cpf;
-    String rg;
+public class Clientes extends Endereco {
+    private String cpf;
+    private String rg;
     
     public String getCpf(){
     return cpf;
