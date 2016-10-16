@@ -40,10 +40,10 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
-                            <img src="img/caiovitor.jpg" alt="...">
+                            <img src="img/caiovitor.jpg" alt="Mito">
                         </a>
                     </div>
-                    <h4>Caio Vitor.</h4>
+                    <h4>Caio Vitor, 19 anos.</h4>
                     <h4>Praia Grande - SP.</h4>
                 </div>
                 <!-- Integrante 3 -->

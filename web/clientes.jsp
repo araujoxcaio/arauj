@@ -11,10 +11,11 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css"> 
-        <title>Fornecedores</title>
+        <title>Clientes</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     </head>
     <body>
+        
         <%@ include file="WEB-INF/header.jspf" %>
         <div class="content ">
             <div class="top ">
