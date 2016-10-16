@@ -28,7 +28,7 @@
                 <br>
                 <!-- Integrante 1 -->
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
                             <img src="img/caio.jpg" alt="...">
                         </a>
@@ -38,7 +38,7 @@
                 </div>
                 <!-- Integrante 2 -->
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
                             <img src="img/caiovitor.jpg" alt="...">
                         </a>
@@ -48,7 +48,7 @@
                 </div>
                 <!-- Integrante 3 -->
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
                             <img src="img/evertt.jpg" alt="...">
                         </a>
@@ -58,7 +58,7 @@
                 </div>
                 <!-- Integrante 4 -->
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
                             <img src="img/flavio.jpg" alt="...">
                         </a>
@@ -68,7 +68,7 @@
                 </div>
                 <!-- Integrante 5 -->
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <a href="#" class="thumbnail">
                             <img src="img/renan.jpg" alt="...">
                         </a>
@@ -79,5 +79,6 @@
                 
             </div>
         </div>
+        <%@ include file="WEB-INF/footer.jspf" %>
     </body>
 </html>
