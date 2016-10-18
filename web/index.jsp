@@ -9,7 +9,7 @@
         </a>
     </div>
     <h4>Caio Araujo, 19 anos.</h4>
-    <h4>Itanhaém - SP.</h4>
+    <h4>Itanhaï¿½m - SP.</h4>
 </div>
 <!-- Integrante 2 -->
 <div class="row">

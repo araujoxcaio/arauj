@@ -9,9 +9,9 @@ package br.com.fatecpg.Pessoa;
  *
  * @author arauj
  */
-public class Fornecedores extends Pessoa {
-    String razao;
-    String cnpj;
+public class Fornecedores extends Endereco {
+    private String razao;
+    private String cnpj;
     
     public String getRazao(){
     return razao;
