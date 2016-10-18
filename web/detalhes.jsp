@@ -27,7 +27,7 @@
             <div class="container ">
                 <br />
                 <br />
-                <center><h2>Detalhes do Clientes</h2></center>
+                <center><h2>Detalhes do Cliente</h2></center>
                 <br />
 
                 <fieldset>

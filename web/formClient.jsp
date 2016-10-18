@@ -42,7 +42,7 @@
             <div class="container">
                 <br>
                 <br>
-                <h1>Inclusão de Clientes</h1>
+                <center><h1>Inclusão de Clientes</h1></center>
                 <br>
                 <fieldset>
                     <legend>Dados do Cliente</legend>
