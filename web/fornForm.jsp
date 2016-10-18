@@ -57,7 +57,7 @@
                 <div class="form">
                   <form action="" method="POST">
                     <div class="form-group">
-                      <label for="Razão Social">Razão Social</label>
+                      <label for="RazãoSocial">Razão Social</label>
                       <input type="text" class="form-control" name="RazaoSocial" placeholder="Josevaldo Companhia Limitada" value="<%= forn.getRazao() %>" />
                     </div>
                     <div class="form-group">

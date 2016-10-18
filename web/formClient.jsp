@@ -1,4 +1,3 @@
-
 <%@page import="br.com.fatecpg.Pessoa.Database"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.fatecpg.Pessoa.Clientes"%>
@@ -6,20 +5,22 @@
 
 <!DOCTYPE html>
 <%
-    ArrayList<Clientes> lista = Database.getClientes();
-    if (request.getParameter("incluir") != null) {
+    ArrayList<Clientes> clients = Database.getClientes();
+    if (request.getParameter("gravar") != null) {
         Clientes c = new Clientes();
         c.setNome(request.getParameter("nome"));
         c.setCpf(request.getParameter("cpf"));
-        c.setRg((request.getParameter("rg")) + (request.getParameter("oe")));
+        c.setRg((request.getParameter("rg")) + "-" + (request.getParameter("oe")));
         c.setTelefone(request.getParameter("telefone"));
         c.setEmail(request.getParameter("email"));
-        c.setLogr((request.getParameter("opt")) + (request.getParameter("end")));
+        c.setLogr((request.getParameter("opt")) + " " + (request.getParameter("end")));
         c.setNumero(request.getParameter("num"));
-        c.setComplemento(request.getParameter("complemento"));
+        c.setComplemento(request.getParameter("compl"));
         c.setBairro(request.getParameter("bairro"));
         c.setCidade(request.getParameter("cidade"));
-        c.setUf(request.getParameter("uf"));        
+        c.setUf(request.getParameter("uf"));
+        clients.add(c);
+        response.sendRedirect(request.getRequestURI());
     }
 
 %>
@@ -32,6 +33,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     </head>
     <body>
+
         <%@ include file="WEB-INF/header.jspf" %>
         <div class="content ">
             <div class="top ">
@@ -44,7 +46,9 @@
                 <br>
                 <fieldset>
                     <legend>Dados do Cliente</legend>
-                    <form>
+
+ 
+                    <form method="POST">
                         <table>
                             <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
                             <tr><td>Nome:</td>
@@ -76,11 +80,13 @@
                             <tr><td>Cidade:</td><td><input type="text" name="cidade"/></td>
                                 <td>UF:</td>
                                 <td><input type="text" name="uf"/></td></tr>
-                            <tr><td colspan="4"><input type="submit" name="incluir" value="Incluir" /></td></tr>
+                            <tr><td colspan="4"><input type="submit" name="gravar" value="Gravar" /></td></tr>
                         </table>
                     </form>
                 </fieldset>
             </div>
         </div>
+        <%@include file="WEB-INF/footer.jspf" %>
     </body>
 </html>
+
