@@ -19,11 +19,11 @@
             ArrayList<Clientes> clients = Database.getClientes();
         %>
         <div class="content ">
-            <div class="top ">    </div>
+            <div class="top "></div>
             <div class="container ">
                 <br />
                 <br />
-                <center><<h2>Clientes</h2></center>
+                <center><h2>Clientes</h2></center>
                 <br />
                 <table class=" table table-striped">
                     <thead>
