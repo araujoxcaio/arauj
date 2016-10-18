@@ -5,82 +5,64 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<%
-    ArrayList<Clientes> lista = Database.getClientes();
-    if (request.getParameter("incluir") != null) {
-        Clientes c = new Clientes();
-        c.setNome(request.getParameter("nome"));
-        c.setCpf(request.getParameter("cpf"));
-        c.setRg((request.getParameter("rg")) + (request.getParameter("oe")));
-        c.setTelefone(request.getParameter("telefone"));
-        c.setEmail(request.getParameter("email"));
-        c.setLogr((request.getParameter("opt")) + (request.getParameter("end")));
-        c.setNumero(request.getParameter("num"));
-        c.setComplemento(request.getParameter("complemento"));
-        c.setBairro(request.getParameter("bairro"));
-        c.setCidade(request.getParameter("cidade"));
-        c.setUf(request.getParameter("uf"));        
-    }
+<%@page import="br.com.fatecpg.Pessoa.Database"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.fatecpg.Pessoa.fornClient"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css"> 
-        <title>Clientes</title>
+        <title>Fornecedores</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     </head>
     <body>
-        
         <%@ include file="WEB-INF/header.jspf" %>
+        <%
+            int i = 0;
+            ArrayList<Clientes> clients = Database.getClientes();
+            if (request.getParameter("detail") != null) {
+                String param = request.getParameter("ind");
+                int j = Integer.parseInt(param);
+                clients.get(j);
+                response.sendRedirect(request.getRequestURI());
+            }
+        %>
         <div class="content ">
-            <div class="top ">
-
-            </div>
-            <div class="container">
-                <br>
-                <br>
-                <h1>Inclusão de Clientes</h1>
-                <br>
-                <fieldset>
-                    <legend>Dados do Cliente</legend>
-                    <form>
-                        <table>
-                            <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
-                            <tr><td>Nome:</td>
-                                <td colspan="3"><input type="text" name="nome"/></td></tr>
-                            <tr><td>CPF:</td>
-                                <td colspan="3"><input type="text" name="cpf"/></td></tr>
-                            <tr><td>RG:</td>
-                                <td><input type="text" name="rg"/></td>
-                                <td>Órgão Emissor:</td>
-                                <td><input type="text" name="oe"/></td></tr>
-                            <tr><td>Email:</td>
-                                <td colspan="3"><input type="text" name="email"/></td></tr>
-                            <tr><td>Telefone:</td>
-                                <td colspan="3"><input type="text" name="telefone"/></td></tr>
-                            <tr><th colspan="4">Endereço</th></tr>
-                            <tr><td><select name="opt">
-                                        <option value="Rua" selected>Rua</option>
-                                        <option value="Avenida">Avenida</option>
-                                        <option value="Travessa">Travessa</option>
-                                        <option value="Praça">Praça</option>                                
-                                    </select></td>
-                                <td colspan="3"><input type="text" name="end"/></td></tr>
-                            <tr><td>Número:</td>
-                                <td><input type="text" name="num"/></td>                        
-                                <td>Complemento:</td>
-                                <td><input type="text" name="compl"/></td></tr>
-                            <tr><td>Bairro:</td>
-                                <td colspan="3"><input type="text" name="bairro"/></td></tr>
-                            <tr><td>Cidade:</td><td><input type="text" name="cidade"/></td>
-                                <td>UF:</td>
-                                <td><input type="text" name="uf"/></td></tr>
-                            <tr><td colspan="4"><input type="submit" name="incluir" value="Incluir" /></td></tr>
-                        </table>
-                    </form>
-                </fieldset>
+            <div class="top ">    </div>
+            <div class="container ">
+                <br />
+                <br />
+                <center><<h2>Clientes</h2></center>
+                <br />
+                <table class=" table table-striped">
+                    <thead>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>RG</th>
+                    <th>E-mail</th>
+                    <th>CMD</th>
+                    </thead>
+                    <% for (Clientes c : clients) {%>
+                    <tr>
+                        <td> <%= clients.indexOf(c)%> </td>
+                        <td> <%= c.getNome()%> </td>
+                        <td> <%= c.getCpf()%> </td>
+                        <td> <%= c.getRg()%> </td>
+                        <td> <%= c.getEmail()%> </td>
+                        <td>
+                            <form action="">
+                                <input type="hidden" name="i" value="<%= clients.indexOf(c)%>" />
+                                <input type="submit" name="detail" value="Detalhes" />
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
             </div>
         </div>
         <%@include file="WEB-INF/footer.jspf" %>
