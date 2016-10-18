@@ -18,7 +18,7 @@
                     <li id="item-menu-cliente" class="item-menu">
                         <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Clientes</a>
                         <ul id="dropdownCliente" class=""dropdown-menu >
-                            <li class="item-menu"><a href="clientes.jsp">Consultar</a></li>
+                            <li class="item-menu"><a href="clientes.jsp">Consultar</a></li>                            
                             <li class="item-menu"><a href="formClient.jsp">Incluir</a></li>
                         </ul>
                     </li>

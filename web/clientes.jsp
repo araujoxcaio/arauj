@@ -5,12 +5,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<%@page import="br.com.fatecpg.Pessoa.Database"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="br.com.fatecpg.Pessoa.fornClient"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -22,14 +16,7 @@
     <body>
         <%@ include file="WEB-INF/header.jspf" %>
         <%
-            int i = 0;
             ArrayList<Clientes> clients = Database.getClientes();
-            if (request.getParameter("detail") != null) {
-                String param = request.getParameter("ind");
-                int j = Integer.parseInt(param);
-                clients.get(j);
-                response.sendRedirect(request.getRequestURI());
-            }
         %>
         <div class="content ">
             <div class="top ">    </div>
@@ -49,14 +36,14 @@
                     </thead>
                     <% for (Clientes c : clients) {%>
                     <tr>
-                        <td> <%= clients.indexOf(c)%> </td>
+                        <td> <%= clients.indexOf(c)+1 %> </td>
                         <td> <%= c.getNome()%> </td>
                         <td> <%= c.getCpf()%> </td>
                         <td> <%= c.getRg()%> </td>
                         <td> <%= c.getEmail()%> </td>
                         <td>
-                            <form action="">
-                                <input type="hidden" name="i" value="<%= clients.indexOf(c)%>" />
+                            <form action="detalhes.jsp">
+                                <input type="hidden" name="iDetail" value="<%= clients.indexOf(c)%>" />
                                 <input type="submit" name="detail" value="Detalhes" />
                             </form>
                         </td>

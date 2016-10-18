@@ -10,12 +10,12 @@
         Clientes c = new Clientes();
         c.setNome(request.getParameter("nome"));
         c.setCpf(request.getParameter("cpf"));
-        c.setRg((request.getParameter("rg")) + (request.getParameter("oe")));
+        c.setRg((request.getParameter("rg")) + "-" +(request.getParameter("oe")));
         c.setTelefone(request.getParameter("telefone"));
         c.setEmail(request.getParameter("email"));
-        c.setLogr((request.getParameter("opt")) + (request.getParameter("end")));
+        c.setLogr((request.getParameter("opt")) + " " +(request.getParameter("end")));
         c.setNumero(request.getParameter("num"));
-        c.setComplemento(request.getParameter("complemento"));
+        c.setComplemento(request.getParameter("compl"));
         c.setBairro(request.getParameter("bairro"));
         c.setCidade(request.getParameter("cidade"));
         c.setUf(request.getParameter("uf"));
