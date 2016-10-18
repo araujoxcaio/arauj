@@ -10,10 +10,10 @@
         Clientes c = new Clientes();
         c.setNome(request.getParameter("nome"));
         c.setCpf(request.getParameter("cpf"));
-        c.setRg((request.getParameter("rg")) + "-" +(request.getParameter("oe")));
+        c.setRg((request.getParameter("rg")) + "-" + (request.getParameter("oe")));
         c.setTelefone(request.getParameter("telefone"));
         c.setEmail(request.getParameter("email"));
-        c.setLogr((request.getParameter("opt")) + " " +(request.getParameter("end")));
+        c.setLogr((request.getParameter("opt")) + " " + (request.getParameter("end")));
         c.setNumero(request.getParameter("num"));
         c.setComplemento(request.getParameter("compl"));
         c.setBairro(request.getParameter("bairro"));
@@ -33,7 +33,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     </head>
     <body>
-        
+
         <%@ include file="WEB-INF/header.jspf" %>
         <div class="content ">
             <div class="top ">
@@ -46,6 +46,8 @@
                 <br>
                 <fieldset>
                     <legend>Dados do Cliente</legend>
+
+ 
                     <form method="POST">
                         <table>
                             <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
