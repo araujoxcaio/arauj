@@ -7,11 +7,8 @@
 <%
     ArrayList<Clientes> clients = Database.getClientes();
 %>
-<br/>
-<br/>
-<center><h2>Clientes</h2></center>
-<br />
-<table class=" table table-striped">
+<h2>Clientes</h2>
+<table class=" table table-striped" id="table-clientes">
     <thead>
     <th>ID</th>
     <th>NOME</th>

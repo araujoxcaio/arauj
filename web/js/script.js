@@ -1,20 +1,23 @@
-$( 'document' ).ready(function(){
-    $("#dropdownCliente").hide();
-    $("#dropdownForn").hide();
+$(document).ready(function(){
+    $(".table-row-click").click(function() {
+        window.location = $(this).data("href");
+    });
     
-    $('#item-menu-cliente').mouseenter(function(){
-        $("#item").addClass("item");
-        $("#dropdownCliente").stop(true, true).show(400);   
+    $("#table-fornecedores").DataTable( {
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json'
+        },
+        "lengthChange": false,
+        "info": false,
+        "ordering": false
     });
-    $("#item-menu-cliente").mouseleave(function(){
-        $("#dropdownCliente").stop(true, true).hide(250);
-        $("#item").removeClass("item");
-    });
-    $('#item-menu-forn').mouseenter(function(){
-        $("#dropdownForn").stop(true, true).show(400);   
-    });
-    $("#item-menu-forn").mouseleave(function(){
-        $("#dropdownForn").stop(true, true).hide(250);
+    $("#table-clientes").DataTable( {
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json'
+        },
+        "lengthChange": false,
+        "info": false,
+        "ordering": false
     });
 });
 

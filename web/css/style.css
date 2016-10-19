@@ -13,6 +13,10 @@ a:visited {
     text-decoration: none;
 }
 
+.btn {
+    border: none;
+}
+
 .sidebar {
     width: 20%;
     position: fixed;
@@ -91,4 +95,12 @@ a:visited {
 .content > .container {
     width: 100%;
     padding-top: 50px;
+}
+
+.form {
+    width: 50%;
+}
+
+.table-row-click {
+    cursor: pointer;
 }

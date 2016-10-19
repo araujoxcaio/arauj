@@ -1,9 +1,7 @@
 <%@page import="br.com.fatecpg.Pessoa.Database"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.fatecpg.Pessoa.Clientes"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
 <%
     ArrayList<Clientes> clients = Database.getClientes();
     if (request.getParameter("gravar") != null) {
@@ -24,69 +22,66 @@
     }
 
 %>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/style.css"> 
-        <title>Clientes</title>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    </head>
-    <body>
-
-        <%@ include file="WEB-INF/header.jspf" %>
-        <div class="content ">
-            <div class="top ">
-
-            </div>
-            <div class="container">
-                <br>
-                <br>
-                <center><h1>InclusÃ£o de Clientes</h1></center>
-                <br>
-                <fieldset>
-                    <legend>Dados do Cliente</legend>
-
- 
-                    <form method="POST">
-                        <table>
-                            <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
-                            <tr><td>Nome:</td>
-                                <td colspan="3"><input type="text" name="nome"/></td></tr>
-                            <tr><td>CPF:</td>
-                                <td colspan="3"><input type="text" name="cpf"/></td></tr>
-                            <tr><td>RG:</td>
-                                <td><input type="text" name="rg"/></td>
-                                <td>Ã“rgÃ£o Emissor:</td>
-                                <td><input type="text" name="oe"/></td></tr>
-                            <tr><td>Email:</td>
-                                <td colspan="3"><input type="text" name="email"/></td></tr>
-                            <tr><td>Telefone:</td>
-                                <td colspan="3"><input type="text" name="telefone"/></td></tr>
-                            <tr><th colspan="4">EndereÃ§o</th></tr>
-                            <tr><td><select name="opt">
-                                        <option value="Rua" selected>Rua</option>
-                                        <option value="Avenida">Avenida</option>
-                                        <option value="Travessa">Travessa</option>
-                                        <option value="PraÃ§a">PraÃ§a</option>                                
-                                    </select></td>
-                                <td colspan="3"><input type="text" name="end"/></td></tr>
-                            <tr><td>NÃºmero:</td>
-                                <td><input type="text" name="num"/></td>                        
-                                <td>Complemento:</td>
-                                <td><input type="text" name="compl"/></td></tr>
-                            <tr><td>Bairro:</td>
-                                <td colspan="3"><input type="text" name="bairro"/></td></tr>
-                            <tr><td>Cidade:</td><td><input type="text" name="cidade"/></td>
-                                <td>UF:</td>
-                                <td><input type="text" name="uf"/></td></tr>
-                            <tr><td colspan="4"><input type="submit" name="gravar" value="Gravar" /></td></tr>
-                        </table>
-                    </form>
-                </fieldset>
-            </div>
+<%@ include file="WEB-INF/header.jspf" %>
+<h1>Inclusão de Clientes</h1>
+<form method="POST">
+    <div class="form">
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" placeholder="Josevaldo Companhia Limitada" value="<%= forn.getRazao()%>" />
         </div>
-        <%@include file="WEB-INF/footer.jspf" %>
-    </body>
-</html>
-
+        <div class="form-group">
+            <label for="rg">RG</label>
+            <input type="text" class="form-control" name="rg" placeholder="49.764.1474/0001-48" required value="<%= forn.getCnpj()%>"/>
+        </div>
+        <div class="form-group">
+            <label for="E-mail">E-mail</label>
+            <input type="email" class="form-control" name="E-mail" placeholder="josevaldo@cialtda.com" value="<%= forn.getEmail()%>" />
+        </div>
+        <div class="form-group">
+            <label for="Telefone">Telefone</label>
+            <input type="text" class="form-control" name="Telefone" placeholder="(13) 9 9747-4545" value="<%= forn.getTelefone()%>"/>
+        </div>
+        <div class="form-group">
+            <label for="Endereço">Endereço</label>
+            <input type="text" class="form-control" name="Endereco" placeholder="Rua Josevaldo Pereira, 123" value="<%= forn.getLogr()%>"/>
+        </div>
+        <input type="submit" value="Gravar" />
+    </form>
+</div>
+        <table>
+            <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
+            <tr><td>Nome:</td>
+                <td colspan="3"><input type="text" name="nome"/></td></tr>
+            <tr><td>CPF:</td>
+                <td colspan="3"><input type="text" name="cpf"/></td></tr>
+            <tr><td>RG:</td>
+                <td><input type="text" name="rg"/></td>
+                <td>Órgão Emissor:</td>
+                <td><input type="text" name="oe"/></td></tr>
+            <tr><td>Email:</td>
+                <td colspan="3"><input type="text" name="email"/></td></tr>
+            <tr><td>Telefone:</td>
+                <td colspan="3"><input type="text" name="telefone"/></td></tr>
+            <tr><th colspan="4">Endereço</th></tr>
+            <tr><td><select name="opt">
+                        <option value="Rua" selected>Rua</option>
+                        <option value="Avenida">Avenida</option>
+                        <option value="Travessa">Travessa</option>
+                        <option value="Praça">Praça</option>                                
+                    </select></td>
+                <td colspan="3"><input type="text" name="end"/></td></tr>
+            <tr><td>Número:</td>
+                <td><input type="text" name="num"/></td>                        
+                <td>Complemento:</td>
+                <td><input type="text" name="compl"/></td></tr>
+            <tr><td>Bairro:</td>
+                <td colspan="3"><input type="text" name="bairro"/></td></tr>
+            <tr><td>Cidade:</td><td><input type="text" name="cidade"/></td>
+                <td>UF:</td>
+                <td><input type="text" name="uf"/></td></tr>
+            <tr><td colspan="4"><input type="submit" name="gravar" value="Gravar" /></td></tr>
+        </table>
+    </form>
+<%@include file="WEB-INF/footer.jspf" %>

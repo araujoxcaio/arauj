@@ -5,7 +5,8 @@ public class Pessoa {
     private String nome;
     private String email;
     private String telefone;
-
+    private String endereco;
+    
     public String getNome() {
         return nome;
     }
@@ -30,6 +31,13 @@ public class Pessoa {
         this.telefone = telefone;
     }
     
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
 }
 

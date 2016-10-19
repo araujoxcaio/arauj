@@ -3,8 +3,11 @@
     <meta charset="UTF-8">
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/datatables.min.css"/>
     <link rel="stylesheet" href="css/style.css"> 
+    
     <title>Toolbox</title>
+    
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">    
 </head>
 
@@ -13,25 +16,8 @@
     <div class="dropdown menu ">
         <ul>
             <li class="item-menu"><a href="index.jsp ">Home</a></li>
-
-            <div id="item">
-                <li id="item-menu-cliente" class="item-menu">
-                    <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Clientes</a>
-                    <ul id="dropdownCliente" class=""dropdown-menu >
-                        <li class="item-menu"><a href="clientes.jsp">Consultar</a></li>
-                        <li class="item-menu"><a href="#">Incluir</a></li>
-                    </ul>
-                </li>
-            </div>                
-            <div>
-                <li id="item-menu-forn" class="item-menu">
-                    <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Fornecedores</a>
-                    <ul id="dropdownForn" class=""dropdown-menu >
-                        <li class="item-menu"><a href="fornecedores.jsp">Consultar</a></li>
-                        <li class="item-menu"><a href="fornForm.jsp">Incluir</a></li>
-                    </ul>    
-                </li>
-            </div>
+            <li class="item-menu"><a href="clientes.jsp">Clientes</a></li>
+            <li class="item-menu"><a href="fornecedores.jsp">Fornecedores</a></li>
         </ul>
     </div>
 </div>
