@@ -1,56 +1,87 @@
+<%-- 
+    Document   : FornForm
+    Created on : Oct 16, 2016, 5:31:04 PM
+    Author     : Caio
+--%>
 <%@page import="br.com.fatecpg.Pessoa.Database"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.fatecpg.Pessoa.Clientes"%>
 
 <%
+    String acao = "";
     ArrayList<Clientes> clients = Database.getClientes();
-    if (request.getParameter("gravar") != null) {
-        Clientes c = new Clientes();
-        c.setNome(request.getParameter("nome"));
-        c.setCpf(request.getParameter("cpf"));
-        c.setRg((request.getParameter("rg")) + "-" + (request.getParameter("oe")));
-        c.setTelefone(request.getParameter("telefone"));
-        c.setEmail(request.getParameter("email"));
-        c.setLogr((request.getParameter("opt")) + " " + (request.getParameter("end")));
-        c.setNumero(request.getParameter("num"));
-        c.setComplemento(request.getParameter("compl"));
-        c.setBairro(request.getParameter("bairro"));
-        c.setCidade(request.getParameter("cidade"));
-        c.setUf(request.getParameter("uf"));
-        clients.add(c);
-        response.sendRedirect(request.getRequestURI());
+    Clientes clie = null;
+    int id = -1;
+    if (request.getMethod() == "POST") {
+        clie = (id == -1) ? new Clientes() : clients.get(id);
+        clie.setNome(request.getParameter("Nome"));
+        clie.setCpf(request.getParameter("Cpf"));
+        clie.setRg((request.getParameter("Rg")));
+        clie.setEmail(request.getParameter("E-mail"));
+        clie.setTelefone(request.getParameter("Telefone"));
+        clie.setEndereco (request.getParameter("Endereco"));
+        /*clients.add(clie);
+        response.sendRedirect(request.getRequestURI());*/
+        if (id == -1) clients.add(clie);
+        response.sendRedirect("clientes.jsp");
+    }else if (request.getParameter("c") == null) {
+        acao = "Clientes - Incluir";
+        clie = new Clientes();
+        clie.setNome("");
+        clie.setCpf("");
+        clie.setRg("");
+        clie.setEmail("");
+        clie.setTelefone("");
+        clie.setEndereco("");
+    }else {
+        id = Integer.parseInt(request.getParameter("c"));
+        clie = clients.get(id);
+        acao = "Clientes - Editar " + clie.getCpf().toString();
     }
 
 %>
 <%@ include file="WEB-INF/header.jspf" %>
-<h1>Inclusão de Clientes</h1>
-<form method="POST">
+<h1> <%= acao%> </h1>
     <div class="form">
     <form action="" method="POST">
+        <input type="hidden" value="<%= id%>">
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" placeholder="Josevaldo Companhia Limitada" value="<%= forn.getRazao()%>" />
+            <input type="text" class="form-control" name="Nome" placeholder="Josevaldo Companhia Limitada" value="<%= clie.getNome()%>" />
+        </div>
+        <div class="form-group">
+            <label for="rg">CPF</label>
+            <input type="text" class="form-control" name="Cpf" placeholder="49.764.1474/0001-48" required value="<%= clie.getCpf()%>"/>
         </div>
         <div class="form-group">
             <label for="rg">RG</label>
-            <input type="text" class="form-control" name="rg" placeholder="49.764.1474/0001-48" required value="<%= forn.getCnpj()%>"/>
+            <input type="text" class="form-control" name="Rg" placeholder="49.764.1474/0001-48" required value="<%= clie.getRg()%>"/>
         </div>
         <div class="form-group">
             <label for="E-mail">E-mail</label>
-            <input type="email" class="form-control" name="E-mail" placeholder="josevaldo@cialtda.com" value="<%= forn.getEmail()%>" />
+            <input type="email" class="form-control" name="E-mail" placeholder="josevaldo@cialtda.com" value="<%= clie.getEmail()%>" />
         </div>
         <div class="form-group">
             <label for="Telefone">Telefone</label>
-            <input type="text" class="form-control" name="Telefone" placeholder="(13) 9 9747-4545" value="<%= forn.getTelefone()%>"/>
+            <input type="text" class="form-control" name="Telefone" placeholder="(13) 9 9747-4545" value="<%= clie.getTelefone()%>"/>
         </div>
         <div class="form-group">
             <label for="Endereço">Endereço</label>
-            <input type="text" class="form-control" name="Endereco" placeholder="Rua Josevaldo Pereira, 123" value="<%= forn.getLogr()%>"/>
+            <input type="text" class="form-control" name="Endereco" placeholder="Rua Josevaldo Pereira, 123" value="<%= clie.getEndereco()%>"/>
         </div>
-        <input type="submit" value="Gravar" />
+        <input class="btn btn-primary" type="submit" value="Salvar" />
+        <%
+            if (acao != "Clientes - Incluir") {%>
+        <button class="btn btn-danger" id="deleteForn">
+            Excluir
+        </button>
+        <%
+            }
+        %>
+        <a href="clientes.jsp" class="btn btn-info">Voltar</a>
     </form>
 </div>
-        <table>
+        <!--<table>
             <tr><th colspan="4">Documentos Pessoais & Contatos</th></tr> 
             <tr><td>Nome:</td>
                 <td colspan="3"><input type="text" name="nome"/></td></tr>
@@ -82,6 +113,5 @@
                 <td>UF:</td>
                 <td><input type="text" name="uf"/></td></tr>
             <tr><td colspan="4"><input type="submit" name="gravar" value="Gravar" /></td></tr>
-        </table>
-    </form>
+        </table>-->
 <%@include file="WEB-INF/footer.jspf" %>

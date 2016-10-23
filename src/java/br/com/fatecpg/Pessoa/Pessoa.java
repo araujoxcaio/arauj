@@ -6,15 +6,16 @@ public class Pessoa {
     private String email;
     private String telefone;
     private String endereco;
+
     
     public String getNome() {
-        return nome;
+    return nome;
     }
-
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
     public String getEmail() {
         return email;
     }

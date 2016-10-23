@@ -5,32 +5,37 @@
 
 <%@ include file="WEB-INF/header.jspf" %>
 <%
+    int i = 0;
     ArrayList<Clientes> clients = Database.getClientes();
+    if (request.getParameter("c") != null) {
+        int id = Integer.parseInt(request.getParameter("c"));
+        clients.remove(i);
+    }
 %>
 <h2>Clientes</h2>
-<table class=" table table-striped" id="table-clientes">
+<a href="formClient.jsp" class="btn btn-primary">Incluir</a>
+<table class=" table table-striped table-hover" id="table-clientes">
     <thead>
     <th>ID</th>
-    <th>NOME</th>
+    <th>Nome</th>
     <th>CPF</th>
     <th>RG</th>
     <th>E-mail</th>
-    <th>CMD</th>
+    <th>Telefone</th>
+    <th>Endereço</th>
 </thead>
-<% for (Clientes c : clients) {%>
-<tr>
-    <td> <%= clients.indexOf(c) + 1%> </td>
-    <td> <%= c.getNome()%> </td>
-    <td> <%= c.getCpf()%> </td>
-    <td> <%= c.getRg()%> </td>
-    <td> <%= c.getEmail()%> </td>
-    <td>
-        <form action="detalhes.jsp">
-            <input type="hidden" name="iDetail" value="<%= clients.indexOf(c)%>" />
-            <input type="submit" name="detail" value="Detalhes" />
-        </form>
-    </td>
-</tr>
-<%}%>
+   <tbody>
+        <% for (i = 0; i < clients.size(); i++) {%>
+        <tr class="table-row-click" data-href="formClient.jsp?c=<%= i%>">
+            <td> <%= i%></td>
+            <td> <%= clients.get(i).getNome()%></td>
+            <td> <%= clients.get(i).getCpf()%></td>
+            <td> <%= clients.get(i).getRg()%></td>
+            <td> <%= clients.get(i).getEmail()%></td>
+            <td> <%= clients.get(i).getTelefone()%></td>
+            <td> <%= clients.get(i).getEndereco()%></td>
+        </tr>
+        <%}%>
+    </tbody>
 </table>
 <%@include file="WEB-INF/footer.jspf" %>

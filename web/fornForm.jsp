@@ -65,9 +65,10 @@
         <input class="btn btn-primary" type="submit" value="Salvar" />
         <%
             if (acao != "Fornecedores - Incluir") {%>
-        <button class="btn btn-danger" id="deleteForn">
+        <button class="btn btn-danger" id="deleteForn" type="submit" name="Excluir" value="Excluir">
             Excluir
         </button>
+
         <%
             }
         %>

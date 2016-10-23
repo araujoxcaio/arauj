@@ -3,7 +3,7 @@ package br.com.fatecpg.Pessoa;
 public class Clientes extends Pessoa {
     private String cpf;
     private String rg;
-    
+   
     public String getCpf(){
     return cpf;
     }
