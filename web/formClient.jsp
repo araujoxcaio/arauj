@@ -34,7 +34,7 @@
                     clients.add(clie);
                     }
             }
-    // Resposta enviada para página "clientes.jsp"         
+    // Resposta enviada para página "clientes.jsp" .        
     response.sendRedirect("clientes.jsp");
     // Condição de inclusão da ação. 
     }else if (request.getParameter("c") == null) {
