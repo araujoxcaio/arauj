@@ -1,30 +1,31 @@
-<%-- 
-    Document   : FornForm
-    Created on : Oct 16, 2016, 5:31:04 PM
-    Author     : Caio
---%>
-
 <%@page import="br.com.fatecpg.Pessoa.Fornecedores"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.fatecpg.Pessoa.Database"%>
 
 <%
-    String acao = "";
+    String acao = "Fornecedores - Incluir";
     ArrayList<Fornecedores> forns = Database.getFornecedores();
     Fornecedores forn = null;
     int id = -1;
     if (request.getMethod() == "POST") {
+        id = Integer.parseInt(request.getParameter("id"));
         forn = (id == -1) ? new Fornecedores() : forns.get(id);
-        forn.setRazao(request.getParameter("RazaoSocial"));
-        forn.setCnpj(request.getParameter("CNPJ"));
-        forn.setEmail(request.getParameter("E-mail"));
-        forn.setTelefone(request.getParameter("Telefone"));
-        forn.setEndereco(request.getParameter("Endereco"));
-        //forns.get(forns.indexOf(forn));
-        if (id == -1) forns.add(forn);
+       
+        if (request.getParameter("submit").equals("Excluir")) {
+            forns.remove(id);
+        } else {
+            forn.setRazao(request.getParameter("RazaoSocial"));
+            forn.setCnpj(request.getParameter("CNPJ"));
+            forn.setEmail(request.getParameter("E-mail"));
+            forn.setTelefone(request.getParameter("Telefone"));
+            forn.setEndereco(request.getParameter("Endereco"));
+            if (id == -1) {
+                forns.add(forn);
+            }
+        }
+
         response.sendRedirect("fornecedores.jsp");
     } else if (request.getParameter("c") == null) {
-        acao = "Fornecedores - Incluir";
         forn = new Fornecedores();
         forn.setRazao("");
         forn.setCnpj("");
@@ -40,8 +41,8 @@
 <%@ include file="WEB-INF/header.jspf"%>
 <h2> <%= acao%> </h2>
 <div class="form">
-    <form action="" method="POST">
-        <input type="hidden" value="<%= id%>">
+    <form method="POST">
+        <input type="hidden" name="id" value="<%= id%>">
         <div class="form-group">
             <label for="RazaoSocial">Razão Social</label>
             <input type="text" class="form-control" name="RazaoSocial" placeholder="Josevaldo Companhia Limitada" value="<%= forn.getRazao()%>" />
@@ -62,13 +63,12 @@
             <label for="Endereco">Endereço</label>
             <input type="text" class="form-control" name="Endereco" placeholder="Rua Josevaldo Pereira, 123" value="<%= forn.getEndereco()%>"/>
         </div>
-        <input class="btn btn-primary" type="submit" value="Salvar" />
+        <input class="btn btn-primary" type="submit" name="submit" value="Salvar" />
         <%
             if (acao != "Fornecedores - Incluir") {%>
-        <button class="btn btn-danger" id="deleteForn" type="submit" name="Excluir" value="Excluir">
+        <button class="btn btn-danger" id="deleteForn" type="submit" name="submit" value="Excluir">
             Excluir
         </button>
-
         <%
             }
         %>
