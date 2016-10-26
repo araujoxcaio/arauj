@@ -8,7 +8,7 @@
             <img src="img/caio.jpg" alt="...">
         </a>
     </div>
-    <h4>Caio Araujo, 19 anos</h4>
+    <h4>Caio Araujo</h4>
     <h4>Itanhaém - SP</h4>
 </div>
 
@@ -35,17 +35,6 @@
 </div>
 
 <!-- Integrante 4 -->
-<div class="row">
-    <div class="col-md-2">
-        <a href="#" class="thumbnail">
-            <img src="img/flavio.jpg" alt="...">
-        </a>
-    </div>
-    <h4>Flavio Nascimento</h4>
-    <h4>Praia Grande - SP</h4>
-</div>
-
-<!-- Integrante 5 -->
 <div class="row">
     <div class="col-md-2">
         <a href="#" class="thumbnail">

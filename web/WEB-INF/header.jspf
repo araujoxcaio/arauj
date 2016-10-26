@@ -12,7 +12,8 @@
 </head>
 
 <div class="sidebar">
-    <div class="brand"> <a href="index.html">Toolbox</a> </div>
+    <div class="icon-bar">
+    <div class="brand"><img src="img/icon.png" alt="..." width="55" height="55"><a>Toolbox!</a> </div></div>
     <div class="dropdown menu ">
         <ul>
             <li class="item-menu"><a href="index.jsp ">Home</a></li>
